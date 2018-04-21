@@ -3,25 +3,14 @@
 require '../app/Autoloader.php';
 App\Autoloader::register();
 
-if(isset($_GET['p'])){
-    $p = $_GET['p'];
-}else{
-    $p = 'home';
-}
+$app = App\app::getInstance();
+$app->title = "Titre de test";
 
-ob_start();
-if($p === 'home'){
-    require '../pages/home.php';
-
-}elseif($p === 'article'){
-    require '../pages/single.php';
-
-}elseif($p === 'categorie'){
-    require '../pages/categorie.php';
-}
+$app2 = App\app::getInstance();
+echo $app2->title;
 
 
-$content = ob_get_clean();
+var_dump($config = App\config::getInstance()->get('db_user'));
 
-require '../pages/templates/default.php';
+
 ?>
