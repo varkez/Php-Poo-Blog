@@ -1,3 +1,5 @@
+Le Singleton, permet d'avoir une classe qui sera instanciée qu'une seule fois tout au long de notre application. Par exemple, dans le cadre de notre application nous auront une seule et unique configuration. On va donc chercher à instancier cette objet une seule fois pour pouvoir ensuite récupérer l'instance à tout moment de notre application.
+
 Pourquoi pas une classe statique ?
 
     # On ne dispose d'aucun constructeur pour y placer la logique d'initialisation
