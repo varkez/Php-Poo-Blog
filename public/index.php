@@ -11,6 +11,5 @@ echo $app2->title;
 
 
 var_dump($config = App\config::getInstance()->get('db_user'));
-
-
+ 
 ?>

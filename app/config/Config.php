@@ -5,7 +5,7 @@ return array(
     "db_pass" => "",
     "db_host" => "localhost:3306",
     "db_name" => "blog"
-    
+     
 );
 
 ?>

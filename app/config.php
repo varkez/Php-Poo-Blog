@@ -6,7 +6,7 @@ class Config{
     private $setting = [];
 
     private static $_instance; // L'attribut qui stockera l'instance unique
-
+ 
     /**
     * La méthode statique qui permet d'instancier ou de récupérer l'instance unique class Config (Singleton)
     **/

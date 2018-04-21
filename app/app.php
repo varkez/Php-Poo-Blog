@@ -5,7 +5,7 @@ class App{
 
     public $title = "Mon super site";
     private static $_instance;
-
+    
     /**
     * La méthode statique qui permet d'instancier ou de récupérer l'instance unique class App (Singleton)
     **/
