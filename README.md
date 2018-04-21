@@ -23,8 +23,8 @@ ________________________________________________________________________________
 *Table / app.php / index.php /
 
 Le Factory est un design pattern incontournable qui permet de beaucoup mieux structurer les classes. Le principe est d'avoir une classe qui va se charger de créer les objets dont on a besoin.
-  
-  # Elle contient des méthodes statiques qui permettent de retourner des instances.
-  # On peut aller plus loin en créant une méthode qui prendra des paramètre pour instancier plusieurs classes en une seule fois.
+    
+    # Elle contient des méthodes statiques qui permettent de retourner des instances.
+    # On peut aller plus loin en créant une méthode qui prendra des paramètre pour instancier plusieurs classes en une seule fois.
  
 ________________________________________________________________________________________________________________________________
