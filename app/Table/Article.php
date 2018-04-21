@@ -29,14 +29,9 @@ class Article extends Table{
             "SELECT articles.id, articles.titre, articles.contenu, categories.titre as categorie
             FROM articles
             LEFT JOIN categories ON category_id = categories.id
-<<<<<<< HEAD
             WHERE articles.id = ?
             ", [$id], true);
-=======
-            WHERE articles.id = ?"
-            
-            , [$id], true);
->>>>>>> 731d51aea489a68f93abc088b27cda2eb3e5f335
+
     }
 
 

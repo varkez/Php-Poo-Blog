@@ -20,11 +20,10 @@
 
     <?php //var_dump($post); ?>
 
-<<<<<<< HEAD
+
             <h2><a href="<?= $post->pppppp ?>"><?= $post->titre; ?></a></h2>
-=======
+
             <h2><a href="<?= $post->url ?>"><?= $post->titre; ?></a></h2>
->>>>>>> 731d51aea489a68f93abc088b27cda2eb3e5f335
 
             <p><em><?= $post->categorie; ?></em></p>
 
