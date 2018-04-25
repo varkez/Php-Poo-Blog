@@ -31,7 +31,7 @@ Le Factory est un design pattern incontournable qui permet de beaucoup mieux str
 ________________________________________________________________________________________________________________________________
 
 -> Injection de dépendances Simple, ou DI
-*App.php / Table.php /
+* Core/Table.php
 
 L'injection de dépendance (ou DI) est un design pattern qui permet de solutionner une problématique de communication entre les classes, lier aux liaisons entre classe appellé dans une. La solution au problème est de passer directement au constructeur l'objet que l'on souhaite utiliser. 
 Puis d'instancier deux autres objets par exemple : 
