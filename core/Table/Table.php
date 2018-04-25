@@ -8,9 +8,9 @@
         protected $table;
         protected $db;
 
-        public function __construct(Database $db)
+        public function __construct(Database $db)  //Injection de dépendance $db, precision de la classe Database
         {
-            $this->db = $db;
+            $this->db = $db;    <--
             if(is_null($this->table)){
             $parts = explode('\\', get_class($this));
             $class_name = end($parts);
