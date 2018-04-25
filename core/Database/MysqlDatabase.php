@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace Core\Database;
 
 use \PDO;
 
-class Database{
+class MysqlDatabase extends Database{
 
     private $db_name;
     private $db_user;
@@ -21,16 +21,22 @@ class Database{
 
     private function getPDO(){
         if($this->pdo === null){
-        $pdo = new PDO ('mysql:host='.$this->db_host.';dbname='.$this->db_name, $this->db_user, $this->db_pass);
+        $pdo = new PDO ('mysql:host=blog;host=localhost:3306', 'root', '');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo = $pdo;
         }
         return $this->pdo;
     }
 
-    public function query($statement, $class_name, $one = false){
+    public function query($statement, $class_name = null, $one = false){
+        var_dump($statement);
         $req = $this->getPDO()->query($statement);
-        $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+ 
+        if($class_name === null){
+            $req->setFetchMode(PDO::FETCH_OBJ);
+        }else{
+            $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+        }
         if($one){
             $datas = $req->fetch();
         }else{
@@ -51,3 +57,4 @@ class Database{
         return $datas;
     }
 }
+?>

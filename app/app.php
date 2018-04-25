@@ -1,35 +1,53 @@
 <?php
-namespace App;
+
+use Core\Config;
+use Core\Database\MysqlDatabase;
+
+
 
 class App{
 
-    const DB_NAME = 'blog';
-    const DB_USER = 'root';
-    const DB_PASS = '';
-    const DB_HOST = 'localhost:3306';
-
-    private static $database;
-    private static $title = "Mon super Site !";
-
-    public static function getDatabase(){
-        if(self::$database === null){
-            self::$database = new Database(self::DB_NAME, self::DB_USER, self::DB_PASS, self::DB_HOST);
+    public $title = "Mon super site";
+    private $db_instance;
+    private static $_instance;
+    
+    /**
+    * La méthode statique qui permet d'instancier ou de récupérer l'instance unique class App (Singleton)
+    **/
+    public static function getInstance(){
+        if(is_null(self::$_instance)){
+            self::$_instance = new App();       
         }
-       return self::$database;
+        return self::$_instance;
+    }
+    /**
+     * Include le fichier correspondant a notre classe passer en paramètre, Lance les Autoloaders
+     * @param le nom de la class voulu
+     * @return le chemain est nom de la class.php
+     */
+    public static function load(){
+        session_start();
+        require ROOT . '/app/Autoloader.php';
+        App\Autoloader::register();
+        require ROOT . '/core/Autoloader.php';        
+        Core\Autoloader::register();
+    }
+    /**
+     * Permet de return un object(App\Table\PostsTable) avec un protected 'table' => string 'posts'
+     * Et Instancie la connexion a la base de donnée
+     */
+    public function getTable($name){
+        $class_name = '\\App\\Table\\' . ucfirst($name) . 'Table';
+        return new $class_name($this->getDb()); //injection de Dépendances.
     }
 
-    public static function notFound(){
-        header("HTTP/1.0 404 Not Found");
-        header('Location: index.php?p=404');
-    }
-
-
-    public static function getTitle(){
-        return self::$title;
-    }
-
-    public static function setTitle($title){
-        self::$title = $title . ' | ' . self::$title;
+    private function getDb(){
+        $config = Config::getInstance(ROOT . '/config/Config.php'); //Appel de l'instance Singleton class Config
+        
+        if(is_null($this->db_instance)){
+            $this->db_instance = new MysqlDatabase($config->get('db_name'), $config->get('db_user'), $config->get('db_pass'), $config->get('db_host'));
+        }
+        return $this->db_instance;
     }
 }
 ?>
