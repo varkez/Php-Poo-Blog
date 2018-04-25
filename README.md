@@ -4,7 +4,7 @@
  -> Le Singleton,
 *config.php / app.php / index.php /
  
-permet d'avoir une classe qui sera instanciée qu'une seule fois tout au long de notre application. Par exemple, dans le cadre de notre application nous auront une seule et unique configuration. On va donc chercher à instancier cette objet une seule fois pour pouvoir ensuite récupérer l'instance à tout moment de notre application.
+permet d'avoir une classe qui sera instanciée qu'une seule fois en objet tout au long de notre application. Par exemple, dans le cadre de notre application nous auront une seule et unique configuration. On va donc chercher à instancier cette objet une seule fois pour pouvoir ensuite récupérer l'instance à tout moment de notre application.
 
 Pourquoi pas une classe statique ?
 
@@ -31,9 +31,9 @@ Le Factory est un design pattern incontournable qui permet de beaucoup mieux str
 ________________________________________________________________________________________________________________________________
 
 -> Injection de dépendances Simple, ou DI
-* App.php
+*App.php
 
-L'injection de dépendance (ou DI) est un design pattern qui permet de solutionner une problématique de communication entre les classes, lier aux liaisons entre classe appellé dans une autre. La solution au problème est de passer directement au constructeur l'objet que l'on souhaite utiliser. 
+L'injection de dépendance (ou DI) est un design pattern qui permet de solutionner une problématique de communication entre les classes, lier aux liaisons entre classe appellé dans une. La solution au problème est de passer directement au constructeur l'objet que l'on souhaite utiliser. 
 Puis d'instancier deux autres objets par exemple : 
      
     class Article{
