@@ -34,9 +34,12 @@ ________________________________________________________________________________
 
 L'injection de dépendance (DI pour les intimes) est un design pattern qui permet de solutionner une problématique de communication entre les classes. La solution au problème est de passer directement au constructeur l'objet que l'on souhaite utiliser. Puis d'instancier deux autres objets par exemple : 
      
+    class Article{
+    private $database;
+    
     public function __construct($database){
     $this->database = $database;
-    }
+    }}
 
     // Et quand on construit l'objet
     $db = new MySQLDatabase('blog');
