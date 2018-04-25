@@ -1,4 +1,4 @@
-                        SIMPLES DESIGN PATTERS
+                        SIMPLES DESIGN PATTERNS
                         
                         
  -> Le Singleton,
