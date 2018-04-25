@@ -38,7 +38,7 @@ class App{
      */
     public function getTable($name){
         $class_name = '\\App\\Table\\' . ucfirst($name) . 'Table';
-        return new $class_name($this->getDb()); //injection de Dépendances.
+        return new $class_name($this->getDb()); //Passe en paramètre la connesxion DB lors de l'instanciation
     }
 
     private function getDb(){
