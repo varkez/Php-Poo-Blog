@@ -28,3 +28,20 @@ Le Factory est un design pattern incontournable qui permet de beaucoup mieux str
     # On peut aller plus loin en créant une méthode qui prendra des paramètre pour instancier plusieurs classes en une seule fois.
  
 ________________________________________________________________________________________________________________________________
+
+-> Injection de dépendances Simple, ou DI
+* App.php
+
+L'injection de dépendance (DI pour les intimes) est un design pattern qui permet de solutionner une problématique de communication entre les classes. La solution au problème est de passer directement au constructeur l'objet que l'on souhaite utiliser. Puis d'instancier deux autres objets par exemple : 
+     
+    public function __construct($database){
+    $this->database = $database;
+    }
+
+    // Et quand on construit l'objet
+    $db = new MySQLDatabase('blog');
+    $article = new Article($db); 
+ 
+Les 2 classes sont donc bien indépendante et c'est au niveau de notre application que l'on va "injecter" nos objets les uns dans les autres. Cette approche permet de rendre notre code beaucoup plus flexible.
+On peut aussi reprendre le principe des factory pour se créer une sorte de conteneur qui va se charger de gérer la dépendance à notre place.
+
