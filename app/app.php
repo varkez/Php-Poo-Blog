@@ -4,15 +4,11 @@ use Core\Config;
 use Core\Database\MysqlDatabase;
 
 
-<<<<<<< HEAD
-    public $title = "Mon super site";
-=======
 
 class App{
 
     public $title = "Mon super site";
     private $db_instance;
->>>>>>> origin/master
     private static $_instance;
     
     /**
@@ -20,13 +16,6 @@ class App{
     **/
     public static function getInstance(){
         if(is_null(self::$_instance)){
-<<<<<<< HEAD
-            self::$_instance = new App();
-        }
-        return self::$_instance;
-    }
-
-=======
             self::$_instance = new App();       
         }
         return self::$_instance;
@@ -60,6 +49,5 @@ class App{
         }
         return $this->db_instance;
     }
->>>>>>> origin/master
 }
 ?>
