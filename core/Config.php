@@ -3,7 +3,7 @@ namespace Core;
 
 class Config{
 
-    private $settings = [];
+    private $settings = []; // Contiendra la connexion a la base de donnée
 
     private static $_instance; // L'attribut qui stockera l'instance unique
  
@@ -14,12 +14,11 @@ class Config{
     **/
     private function __construct($file){
         //$this->id = uniqid();
-        var_dump('__construct($file)', $file);
         $this->settings = require ($file);
     }
 
     /**
-    * La méthode statique qui permet d'instancier ou de récupérer l'instance unique class Config (Singleton)
+    * La méthode statique qui permet d'instancier ou de récupérer l'instance unique. (Singleton)
     **/
     public static function getInstance($file){
         if(is_null(self::$_instance)){
