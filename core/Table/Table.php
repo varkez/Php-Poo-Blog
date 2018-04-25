@@ -7,8 +7,10 @@
 
         protected $table;
         protected $db;
-
-        public function __construct(Database $db)  //Injection de dépendance $db, precision de la classe Database
+        
+        /*Injection de dépendance $db, precision de la classe Database parent de la classe MysqlDatabase utilisé
+        */
+        public function __construct(Database $db)
         {
             $this->db = $db;    <--
             if(is_null($this->table)){
