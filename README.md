@@ -25,14 +25,16 @@ ________________________________________________________________________________
 Le Factory est un design pattern incontournable qui permet de beaucoup mieux structurer les classes. Le principe est d'avoir une classe qui va se charger de créer les objets dont on a besoin.
     
     # Elle contient des méthodes statiques qui permettent de retourner des instances.
-    # On peut aller plus loin en créant une méthode qui prendra des paramètre pour instancier plusieurs classes en une seule fois.
+    # On peut aller plus loin en créant une méthode qui prendra des paramètre 
+      pour instancier plusieurs classes en une seule fois.
  
 ________________________________________________________________________________________________________________________________
 
 -> Injection de dépendances Simple, ou DI
 * App.php
 
-L'injection de dépendance (DI pour les intimes) est un design pattern qui permet de solutionner une problématique de communication entre les classes. La solution au problème est de passer directement au constructeur l'objet que l'on souhaite utiliser. Puis d'instancier deux autres objets par exemple : 
+L'injection de dépendance (ou DI) est un design pattern qui permet de solutionner une problématique de communication entre les classes, lier aux liaisons entre classe appellé dans une autre. La solution au problème est de passer directement au constructeur l'objet que l'on souhaite utiliser. 
+Puis d'instancier deux autres objets par exemple : 
      
     class Article{
     private $database;
@@ -43,7 +45,7 @@ L'injection de dépendance (DI pour les intimes) est un design pattern qui perme
 
     // Et quand on construit l'objet
     $db = new MySQLDatabase('blog');
-    $article = new Article($db); 
+    $article = new Article($db); <--
  
 Les 2 classes sont donc bien indépendante et c'est au niveau de notre application que l'on va "injecter" nos objets les uns dans les autres. Cette approche permet de rendre notre code beaucoup plus flexible.
 On peut aussi reprendre le principe des factory pour se créer une sorte de conteneur qui va se charger de gérer la dépendance à notre place.
