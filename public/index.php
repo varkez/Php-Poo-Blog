@@ -4,15 +4,16 @@ require ROOT . '/app/App.php';
 
 App::load();
 
+if(isset($_GET['page'])){
+        $page = $_GET['page'];
+}else{
+        $page = 'home';
+}
 
-$app = App::getInstance();
-
-var_dump($app);
-//var_dump($config);
-
-$posts = $app->getTable('Posts');
-var_dump('$posts', $posts);
-
-var_dump($posts->all());
-
+ob_start();
+if($page === 'home'){
+    require ROOT . '/pages/articles/home.php';
+}
+$content = ob_get_clean();
+require ROOT . '/pages/templates/default.php';
 ?>

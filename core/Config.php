@@ -4,17 +4,15 @@ namespace Core;
 class Config{
 
     private $settings = [];
-
     private static $_instance; // L'attribut qui stockera l'instance unique
  
 
     /**
-    * Le constrcuteur avec sa logique est privé pour émpêcher l'instanciation de la class en dehors de la classe
+    * 
     * @return Exemple : App.php Ligne 38, Fait appel a core/config.php
     **/
     private function __construct($file){
         //$this->id = uniqid();
-        var_dump('__construct($file)', $file);
         $this->settings = require ($file);
     }
 
