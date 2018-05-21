@@ -1,6 +1,0 @@
-<?php
-
-CarFactory::getCar('citadine');
-
-
-?>
