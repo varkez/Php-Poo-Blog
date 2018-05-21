@@ -24,6 +24,10 @@
             return $this->query('SELECT * FROM blog.' . $this->table);
         }
 
+        public function find($id){
+            return $this->query("SELECT * FROM blog.{$this->table} WHERE id= ?", [$id], true);
+        }
+
         public function query($statement, $attributes = null, $one = false){
             //var_dump($statement);
             //var_dump($this->db);

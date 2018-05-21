@@ -1,10 +1,6 @@
 <div class="row">
     <div class="col-sm-8">
 
-    <?php 
-        //$test = App::getInstance()->getTable('Post')->last();
-     ?>
-
     <?php foreach(App::getInstance()->getTable('Post')->last() as $post): ?>
 
             <h2><a href="<?= $post->url; ?>"><?= $post->titre; ?></a></h2>
