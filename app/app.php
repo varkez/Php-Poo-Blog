@@ -42,12 +42,22 @@ class App{
         return new $class_name($this->getDb()); //injection de Dépendances.
     }
 
-    private function getDb(){
+    public function getDb(){
         $config = Config::getInstance(ROOT . '/config/Config.php'); //Appel de  l'instance class Config (Singleton)
         if(is_null($this->db_instance)){
             $this->db_instance = new MysqlDatabase($config->get('db_name'), $config->get('db_user'), $config->get('db_pass'), $config->get('db_host'));
         }
         return $this->db_instance;
+    }
+
+    public function forbidden(){
+        header('HTTP/1.0 403 Forbidden');
+        die('Acces interdit');
+    }
+
+    public function notFound(){
+        header('HTTP/1.0 404 Not Found');
+        die('Page Introuvable');
     }
 }
 ?>
